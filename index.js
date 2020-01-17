@@ -10,3 +10,12 @@ const userInfo = {
         }
     }
 }
+
+const {id, email, personalInfo:{address:{state:name}}} = userInfo
+
+// const {state} = personalInfo.address
+// console.log("id", id)
+// console.log("email", email)
+// console.log("personal Info", name)
+
+console.log(name)

@@ -1,7 +1,15 @@
 // What is destructuring and why would I want to do it?
+// theObject = {
+//     key1: "",
+//     key2: "",
+//     key3: "",
+// }
+
 // let {key1, key2, key3} = theObject
 
 // REACT: This will be useful for destructuring props {}
+
+// console.log('hey')
 
 const module3 = {
     name: "Dumbo Web 111819",
@@ -13,14 +21,15 @@ const module3 = {
     }
   }
 
-//  How do I save certain key-value pairs to a variable?
+// console.log(name, population, founded, languages, leadInstructor)
 
-// const name = module3.name;
-// const population = module3.population;
-// const founded = module3.founded;
-// const mascot = module3.mascot;
-// const leadInstructor = module3.leadInstructor.name;
-// const coaches = module3.coaches.name;
+const {population, name, founded, languages, leadInstructor: {name: notName}} = module3
+// const ian = module3
+// console.log(ian)
+// console.log(population2)
+// console.log(module3)
+// console.log(name)
+// console.log(notName)
 
 
 
@@ -34,6 +43,12 @@ const module3 = {
 // console.log(coachesName)
 // console.log(startingFive)
 // console.log(module3.coaches.name)
+
+
+
+
+
+
 // Can it be done better and DRY-er?
 // Could we do all of the above in one line?
 // // Could I rename variables as I destructure them?
@@ -42,9 +57,22 @@ const module3 = {
 
 
 
+
+
+
+
 // Could I do it to an array?
 
   const instructorsNames = ["Eric", "Sylwia", "Rei"];
+
+//   console.log(instructorsNames[0])
+//   console.log(instructorsNames[1])
+
+  const [firstCoder, ,Sylwia] = instructorsNames
+
+//   console.log(instructorsNames)
+//   console.log(Sylwia)
+//   console.log()
 
 //   const [masterCoder, prettyAdvancedCoder, ...prettyMasterCoder] = instructorsNames
   
@@ -68,7 +96,7 @@ const module3 = {
 
   const instructors = [
     {
-     name: "Henry",
+     name: "Henry(Eric)",
      leadInstructor: true
     },
     {
@@ -76,7 +104,7 @@ const module3 = {
       leadInstructor: true
     },
     {
-      name: "Leizl",
+      name: "Sylwia",
       leadInstructor: false
     },
     {
@@ -85,9 +113,12 @@ const module3 = {
     }
   ]
 
-function greet({name, leadInstructor: lead}) {
+//   const {name, leadInstructor} = me
+
+function greet( {name, leadInstructor:name} ) {
   // const {name, lead} = instructor
   return `Hello, ${ lead ? "Master" : "Coach" } ${ name }!`
+// return `Hello ${name}`
 }
 
 //pass as arg
@@ -96,10 +127,10 @@ function greet({name, leadInstructor: lead}) {
 
 
 const me = { 
-  name: "Rei",
-  leadInstructor: false
+  name: "Ian",
+  leadInstructor: true
 };
-greet(me)
+console.log(greet(me))
 
 // console.log(instructors.forEach(greet))
 
